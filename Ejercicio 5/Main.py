@@ -9,13 +9,12 @@ def option1(lista):
     division = input('Ingresar division: ')
     
     print('\t{:<40} {:<5}'.format('Alumno','Porcentaje'))
-    for i in range(0, len(lista)):
-
+    while i < len(lista):
         if lista[i].getAnio() == anio and lista[i].getDivision() == division :
-
+            
             if lista[i].getInasistencias() > Alumno.maxInasistencias :
                 print('\t{:<40} {:<5}%'.format(lista[i].getNombre(), (lista[i].getInasistencias()/Alumno.cantClases)*100))
-
+        i = i + 1
     input()
 
 def option2(lista):
