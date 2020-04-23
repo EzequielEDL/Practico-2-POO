@@ -48,7 +48,7 @@ class FechaHora:
         mulSub2 = int(((sub2 - 60) * -1) / 60)
         mulSub3 = int(((sub3 - 24) * -1) / 24)
 
-        if sub1 < 0 : sub1 = sub1 + 60 * int(((sub1 - 60) * -1) / 60)   #SEG
+        if sub1 < 0 : sub1 = sub1 + 60 * mulSub1                        #SEG
         if sub1 * mulSub1 + 59 >= 60 : sub2 = sub2 - mulSub1            #MIN
         if sub2 < 0 : sub2 = sub2 + 60 * mulSub2                        #MIN
         if sub2 * mulSub2 + 59 >= 60 : sub3 = sub3 - mulSub2            #HOR
