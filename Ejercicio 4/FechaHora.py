@@ -53,7 +53,7 @@ class FechaHora:
         #print('dias del anio: ',num)
 
         #anio bisiesto
-        if (self.__anio % 4) == 0 : diasMes[2] = 29
+        if (self.__anio % 4 == 0) and ((self.__anio % 100 != 0) or (self.__anio % 400 == 0)) : diasMes[2] = 29
 
         #dia/mes/anio
         while self.__dia > diasMes[self.__mes] : 
