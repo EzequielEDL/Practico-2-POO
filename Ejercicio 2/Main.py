@@ -6,17 +6,20 @@ import os
 
 def option1(lista, num):
     print('\tCantidad total de Millas: ' + str(lista[num-1].cantidadTotaldeMillas()))
-    input()
+    
+    input('\n\n<< press any key to continue >>')
 
 def option2(lista, num):
     mil = input('\tCantidad de millas: ')
     lista[num-1].acumularMillas(mil)
-    input()
+    
+    input('\n\n<< press any key to continue >>')
 
 def option3(lista, num):
     mil = input('\tCantidad de millas: ')
     lista[num-1].canjearMillas(mil)
-    input()
+    
+    input('\n\n<< press any key to continue >>')
 
 select = {1: option1, 2: option2, 3: option3}
 
@@ -46,7 +49,7 @@ if __name__ == '__main__':
 
     os.system('cls')
     listaMemoria(lista)
-    input()
+    input('\n\n<< press any key to continue >>')
 
     while not flag:
         os.system('cls')
