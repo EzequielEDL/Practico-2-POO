@@ -15,12 +15,14 @@ def option1(lista):
             if lista[i].getInasistencias() > Alumno.maxInasistencias :
                 print('\t{:<40} {:<5}%'.format(lista[i].getNombre(), (lista[i].getInasistencias()/Alumno.cantClases)*100))
         i = i + 1
-    input()
+    
+    input('\n\n<< press any key to continue >>')
 
 def option2(lista):
     maxInasistencias = input('-Ingrese cantidad: ')
     Alumno.setMaxInasistencias(maxInasistencias)
-    input()
+    
+    input('\n\n<< press any key to continue >>')
 
 select = {1: option1, 2: option2}
 
