@@ -14,7 +14,7 @@ class Email:
             print('Error al validar tipos de datos')
 
     def __testing(self, idCuenta, dominio, tipoDominio, clave):
-        if idCuenta.isidentifier() and dominio.isalpha() and tipoDominio.isalpha and clave.isalnum() :
+        if idCuenta.isidentifier() and dominio.isalpha() and tipoDominio.isalpha() and clave.isalnum() :
             return True
         else :
             return False
