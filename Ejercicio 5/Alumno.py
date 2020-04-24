@@ -16,7 +16,7 @@ class Alumno:
             print('Error al validar tipos de datos')
 
     def __testing(self, nombre, anio, division, inasistencias):
-        if nombre.title() and anio.isdecimal() and division.isalpha and inasistencias.isdecimal() :
+        if nombre.title() and anio.isdecimal() and division.isalpha() and inasistencias.isdecimal() :
             return True
         else :
             return False
