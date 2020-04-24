@@ -15,7 +15,7 @@ class ViajeroFrecuente:
             print('Error al validar tipos de datos')
 
     def __testing(self, numViajero, dni, nombre, apellido, millasAcum):
-        if numViajero.isdecimal() and dni.isdecimal() and nombre.isalpha and apellido.isalpha() and millasAcum.isdecimal() :
+        if numViajero.isdecimal() and dni.isdecimal() and nombre.isalpha() and apellido.isalpha() and millasAcum.isdecimal() :
             return True
         else :
             return False
