@@ -65,8 +65,7 @@ def option3():
     print('Hora 2: ', end = '   ')
     f2.mostrar()
     f3 = f1 > f2
-    print("\nResultado: ", end = '')
-    f3.mostrar()
+    print("\nResultado f1 > f2 : {}".format(f3))
     input()
 
 select = {1: option1, 2: option2, 3: option3}
