@@ -78,9 +78,6 @@ class FechaHora:
             return FechaHora(self.__dia, self.__mes, self.__anio, resul[2], resul[1], resul[0])
     
     def __sub__(self, argument):
-
-
-
         resul = self.__verificationDate(self.__dia - argument)
         return FechaHora(resul[0], resul[1], resul[2], self.__hor, self.__min, self.__seg)
 
