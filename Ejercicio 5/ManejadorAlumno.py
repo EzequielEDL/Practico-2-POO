@@ -8,7 +8,7 @@ class ManejadorAlumno:
     def __init__(self, nameFile = '0'):
         if nameFile != '0' :
             self.__nameFile = nameFile
-            file = open('fileAlumno.csv')
+            file = open(self.__nameFile)
             reader = csv.reader(file, delimiter = ',')
 
             for fila in reader:
