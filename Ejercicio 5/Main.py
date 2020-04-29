@@ -1,59 +1,41 @@
 #Ejercicio 5
 
-import csv
-from Alumno import Alumno
+from ManejadorAlumno import ManejadorAlumno
 import os
 
-def option1(lista):
+def option1(manejadorAlumno):
     anio = int(input('Ingresar año: '))
     division = input('Ingresar division: ')
-    
-    print('\t{:<40} {:<5}'.format('Alumno','Porcentaje'))
-    while i < len(lista):
-        if lista[i].getAnio() == anio and lista[i].getDivision() == division :
-            
-            if lista[i].getInasistencias() > Alumno.maxInasistencias :
-                print('\t{:<40} {:<5}%'.format(lista[i].getNombre(), (lista[i].getInasistencias()/Alumno.cantClases)*100))
-        i = i + 1
+    manejadorAlumno.getListPorce(anio, division)
     
     input('\n\n<< press any key to continue >>')
 
-def option2(lista):
+def option2(manejadorAlumno):
     maxInasistencias = input('-Ingrese cantidad: ')
-    Alumno.setMaxInasistencias(maxInasistencias)
+    manejadorAlumno.getElementList().setMaxInasistencias(maxInasistencias)
     
     input('\n\n<< press any key to continue >>')
 
 select = {1: option1, 2: option2}
 
-def menu(opc, lista):
+def menu(opc, manejadorAlumno):
     func = select.get(opc, lambda: print("Opcion Incorrecta"))
-    func(lista)
-
-def readFile(lista):
-    file = open('fileAlumno.csv')
-    reader = csv.reader(file, delimiter = ',')
-
-    for fila in reader:
-        oneAlumno = Alumno (fila[0], fila[1], fila[2], fila[3])
-        lista.append(oneAlumno)
-        print('Added {}'.format(str(fila[0])))
-        
-    file.close()
-    input()
+    func(manejadorAlumno)
 
 if __name__ == "__main__":
 
-    lista = []
-    readFile(lista)
+    manejadorAlumno = []
+    manejadorAlumno = ManejadorAlumno('fileAlumno.csv')
+    print(manejadorAlumno)
+    input()
     flag = False
 
     while not flag:
         os.system('cls')
-        print('\tMenu - Cantidad total de clases ({})'.format(Alumno.cantClases))
+        print('\tMenu - Cantidad total de clases ({})'.format(manejadorAlumno.getElementList().cantClases))
         print('1:Mostrar porcentaje de inasistencias por alumno')
-        print('2:Modificar Cantidad maxima de inasistencias ({})'.format(Alumno.getMaxInasistencias()))
+        print('2:Modificar Cantidad maxima de inasistencias ({})'.format(manejadorAlumno.getElementList().getMaxInasistencias()))
         print('3:Salir')
         opc = int(input('\nIngrese Opcion: '))
-        if opc != 3 : menu(opc, lista)
+        if opc != 3 : menu(opc, manejadorAlumno)
         flag = int(opc) == 3
