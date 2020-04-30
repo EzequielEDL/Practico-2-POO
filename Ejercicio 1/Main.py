@@ -2,7 +2,6 @@
 
 from Email import Email
 import csv
-import re
 
 def modAccount(oneEmail):
     print('¿Modificar Contraseña? (Y/N)')
