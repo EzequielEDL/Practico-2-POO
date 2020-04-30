@@ -58,7 +58,20 @@ class FechaHora:
         return FechaHora(self.__dia, self.__mes, self.__anio, resul[2], resul[1], resul[0])
 
     def __gt__(self, addFechaHora):
-        return self.__hor > addFechaHora.getHor()
+        flagQuit = False
+
+        if self.__hor > addFechaHora.getHor() :
+            flagQuit = True
+        
+        elif self.__hor == addFechaHora.getHor() :
+            if self.__min > addFechaHora.getMin() :
+                flagQuit = True
+            
+            elif self.__min == addFechaHora.getMin() :
+                if self.__seg > addFechaHora.getSeg() :
+                    flagQuit = True
+
+        return flagQuit
     
     def mostrar(self):
         return print('{:02d}/{:02d}/{:4d} - {:02d}:{:02d}:{:02d}'.format(self.__dia, self.__mes, self.__anio, self.__hor, self.__min, self.__seg))
