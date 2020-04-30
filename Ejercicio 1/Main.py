@@ -12,32 +12,32 @@ def modAccount(oneEmail):
         else:
             print('Invalido')
 
-def loadFile(listaEmail):
+def loadFile():
+    listAux = []
     file = open('fileEmail.csv')
-    reader = csv.reader(file,delimiter = ',')
-    i = 0
+    reader = csv.reader(file, delimiter = ',')
 
     for fila in reader:
-        #print(d)
-        listaEmail.append(fila[i])
-        i+1
+        email = Email()
+        email.crearCuenta(fila[0])
+        listAux.append(email)
 
     file.close()
+
+    return listAux
 
 def findDom(listaEmail):
     d = input("Ingresar un Dominio: ")
     cont = 0
 
     for i in range(len(listaEmail)):
-        if(re.search(d, listaEmail[i])) is not None:
+        if listaEmail[i].getDominio() == d:
             cont = cont + 1
         
     if(cont != 0):
         print('La cantidad de direcciones de e-mail con el dominio ' + d + ' son: ' + str(cont))
     else:
         print('No hay ninguna direccion de e-mail con el dominio ' + d)
-
-
 
 if __name__ == '__main__':
     n, e, c = input('Nombre: '), input('Cuenta de Correo: '), input('Contraseña: ')
@@ -53,6 +53,5 @@ if __name__ == '__main__':
     print('Instancia de ' + otherEmail.retornaEmail())
 
     #Lectura de archivo con atributos de Email
-    listaEmail = []
-    loadFile(listaEmail)
+    listaEmail = loadFile()
     findDom(listaEmail)
