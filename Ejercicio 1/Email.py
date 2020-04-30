@@ -22,10 +22,7 @@ class Email:
     def retornaEmail(self):
         return self.__idCuenta + '@' + self.__dominio + '.' + self.__tipoDominio
 
-    def getDominio(self):
-        return self.__dominio
-
-    def crearCuenta(self, email, clave):
+    def crearCuenta(self, email, clave = '0'):
         coutChar1, coutChar2 = 0, 0
 
         for char in email :
@@ -37,20 +34,25 @@ class Email:
         if coutChar1 == 1 and coutChar2 <= 2 and coutChar2 > 0 :
             s2 = email.split('@')
             s3 = s2[1].split('.')
-
-            if s2[0].isidentifier() and s3[0].isalpha() and s3[1].isalpha() and clave.isalnum() :
+            
+            if clave.isalnum() :
+                #print('{}@{}.{}'.format(s2[0], s3[0], s3[1]))
                 self.__idCuenta = str(s2[0])
                 self.__dominio = str(s3[0])
                 self.__tipoDominio = str(s3[1])
                 self.__clave = str(clave)
             else :
+                #print('ERROR: {}@{}.{}'.format(s2[0], s3[0], s3[1]))
                 print('Error al validar tipos de datos')
-
-    def getClave(self):
-        return self.__clave
 
     def setClave(self, clave):
         if clave.isalnum() :
             self.__clave = clave
         else :
             print('Error al validar tipos de datos')
+        
+    def getClave(self):
+        return self.__clave
+
+    def getDominio(self):
+        return self.__dominio
